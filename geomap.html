@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<a href="#" id="get_location">Get Location</a>
+<button onclick="getLocation()">Try It</button>
+<p>Click the button to get your coordinates.</p>
+<p id="demo"></p>
+<div id="map">
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3570
+    .82286350201!2d77.98417541427185!3d26.493647684384197!2m3!1f0!2f0!3f0!3m
+    2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3976ad99e4a5e9d3%3A0x171d0040f5019585!2sJ
+    .%20S.%20Public%20School!5e0!3m2!1sen!2sin!4v1647501671319!5m2!1sen!2sin" 
+    width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+
+</div>
+
+
+<script>
+var x = document.getElementById("demo");
+
+function getLocation() {
+  if (navigator.geolocation) {
+    navigator.geolocation.watchPosition(showPosition);
+  } else { 
+    x.innerHTML = "Geolocation is not supported by this browser.";
+  }
+}
+    
+function showPosition(position) {
+    x.innerHTML="Latitude: " + position.coords.latitude + 
+    "<br>Longitude: " + position.coords.longitude;
+}
+</script>
+<!-- 
+<script>
+var c = function(pos){
+var lat=pos.cords.latitude;
+long =pos.cords.longitute,
+coords = lat+', '+long;
+
+document.getElementById('google_maps').setAttribute('src','https://www.google.com/?q=' + coords + '&z=60&output=embed');
+}
+document.getElementById('get_location').onclick = function(){
+navigator.geolocation.getCurrentPosition(c);
+
+        return false;
+
+    }
+</script> -->
+
+</body>
+
+</html>
